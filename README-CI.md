@@ -28,7 +28,8 @@
 
 ## Part 2 - GitHub Actions and DockerHub
 
-
+- To create a public repo in DockerHub, from your `Repositories` screen: click `Create repository`. Fill out the necessary fields, then select `Create`.
+- 
 
 ## Part 3 - Diagramming
 
