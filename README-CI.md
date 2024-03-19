@@ -9,6 +9,7 @@
 ### Run Project Locally
 
 - To install docker + dependencies on my laptop running Ubuntu 22.04, I executed the following commands:
+```
         sudo apt-get update
         sudo apt-get install ca-certificates curl
         sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
@@ -19,7 +20,7 @@
         sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
         sudo apt-get update
         sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-        
+```
 - To build an image from a `Dockerfile` run `sudo docker build -t <image_name> .` from within the directory that contains the `Dockerfile`.
 - To run the container, I entered the following command to run the container with its exposed port 80 conected to the `localhost` port 8080:
     - `sudo docker run -dit --name proj4 -p 8080:80 proj4`
