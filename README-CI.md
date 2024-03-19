@@ -29,7 +29,14 @@
 ## Part 2 - GitHub Actions and DockerHub
 
 - To create a public repo in DockerHub, from your `Repositories` screen: click `Create repository`. Fill out the necessary fields, then select `Create`.
-- 
+- To authenticate with DockerHub via CLI use `docker login`.
+    - Using the credential stores with a token is generally the safest option.
+- To push a container image to Dockerhub without GitHub Actions, use `docker push <username>/<image_name>`.
+- [DockerHub Repo](https://hub.docker.com/repository/docker/xjohnsonwsu/3120-cicd/general)
+- To configure GitHub Secrets, in the repo goto `Settings`, then `Secrets and variables` and select `Actions`, then select `New repository secret`.
+    - `DOCKER_USERNAME` and `DOCKER_PASSWORD` are set for this project.
+- Whenever there is a push to the main branch of the GitHub repo, this workflow will push the image to the DockerHub repo.
+    - The custom variable for this is the `images: xjohnsonwsu/3120-cicd` which directs where the image is pushed.
 
 ## Part 3 - Diagramming
 
@@ -40,3 +47,7 @@
 - [Docker Curriculum - Dockerfile](https://docker-curriculum.com/#dockerfile)
 - [CourseNotes - Containers](https://github.com/pattonsgirl/CEG3120/blob/main/CourseNotes/containers.md)
 - [CourseNotes - Container Exercises](https://github.com/pattonsgirl/CEG3120/blob/main/CourseNotes/container-exercises.md)
+- [Use the Docker command line](https://docs.docker.com/engine/reference/commandline/cli/)
+- [docker login](https://docs.docker.com/reference/cli/docker/login/)
+- [GitHub - publishing images to DockerHub](https://docs.github.com/en/actions/publishing-packages/publishing-docker-images#publishing-images-to-docker-hub)
+- [Introduction to GitHub Actions](https://docs.docker.com/build/ci/github-actions/)
