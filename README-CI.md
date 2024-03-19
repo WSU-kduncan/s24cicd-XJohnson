@@ -1,4 +1,4 @@
-# Project 4/5 - CICD
+# Project 4 - CI
 
 ## Part 1 - Dockerize it
 
