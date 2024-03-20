@@ -22,7 +22,7 @@
         sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 - To build an image from a `Dockerfile` run `sudo docker build -t <image_name> .` from within the directory that contains the `Dockerfile`.
-- To run the container, I entered the following command to run the container with its exposed port 80 conected to the `localhost` port 8080:
+- To run the container, enter the following command to run it with its exposed port 80 connected to the `localhost` port 8080:
     - `sudo docker run -dit --name proj4 -p 8080:80 proj4`
 - To view the content and verify that it works, open a browser and goto [http://localhost:8080/](http://localhost:8080/).
 
