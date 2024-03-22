@@ -6,6 +6,8 @@
 
 - This project creates a container image with a `Dockerfile` that will be used to build a container that will run an Apache2 webserver serving custom content copied into the container during the image creation. The purpose of hosting a webserver in a container is to be able to more easily update site content across multiple servers and to be able to deploy multiple servers more quickly.
 
+![CI Diagram](/3120-P4-Diagram.jpg)
+
 ### Run Project Locally
 
 - To install docker + dependencies on my laptop running Ubuntu 22.04, I executed the following commands:
