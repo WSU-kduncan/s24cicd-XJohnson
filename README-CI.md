@@ -40,8 +40,6 @@
 - Whenever there is a push to the main branch of the GitHub repo, this workflow will push the image to the DockerHub repo.
     - The custom variable for this is the `images: xjohnsonwsu/3120-cicd` which directs where the image is pushed.
 
-## Part 3 - Diagramming
-
 ### Resources Used
 
 - [Install Docker Engine on Ubuntu - Install using the apt repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
