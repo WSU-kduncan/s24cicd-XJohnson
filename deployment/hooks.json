@@ -1,7 +1,7 @@
 [
     {
       "id": "pull-start",
-      "execute-command": "/home/ubuntu/pull-start.sh",
-      "command-working-directory": "/home/ubuntu"
+      "execute-command": "/var/scripts/pull-start.sh",
+      "command-working-directory": "/var/webhook"
     }
   ]
