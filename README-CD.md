@@ -18,3 +18,7 @@
 - The installation of Docker to the remote instance was the same as the installation to my persoanl laptop as they both run Ubuntu. See [README-CI: Run Project Locally](./README-CI.md#run-project-locally) for detailed instructions.
 - The [container restart script](./deployment/pull-start.sh) is simple. It stops and removes the outdated container, so that the name can be reused. Then it pulls the fresh image from DockerHub and runs a container from the new image. During the operation, it provides output of status.
     - The script is located in `/var/scripts/`.
+- To install `adnanh's webhook`, simply run `sudo apt install webhook`.
+    - `webhook` can be started manually with `webhook -hooks /path/to/hooks.json -verbose`.
+    - By changing the `lib/systemd/system/webhook.service` file to include `ConditionPathExists=/var/webhook` and `ExecStart=/usr/bin/webhook -nopanic -hooks /var/webhook/hooks.json -verbose`, the service will start at boot, load the hooks, and serve them on default port 9000.
+- 
