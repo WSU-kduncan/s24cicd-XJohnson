@@ -4,6 +4,8 @@
 
 - This project uses `git tag` to add tags to the repository which will then be used by the `metadata-action` and the `build-push-action` to appropriately tag images that are being pushed to DockerHub. After that, utilizing a restart script and `webhook` on an EC2 instance to listen for a new image then pull it and deploy the new container automatically.
 
+![CD Diagram](./3120-P5-Diagram.jpg)
+
 - To generate a tag for the repo:
     - `commit` the changes
     - run `git tag -a v<*.*.*> <commit hash> -m "<message>"`
@@ -22,13 +24,15 @@
     - `webhook` can be started manually with `webhook -hooks /path/to/hooks.json -verbose`.
     - By changing the `lib/systemd/system/webhook.service` file to include `ConditionPathExists=/var/webhook` and `ExecStart=/usr/bin/webhook -nopanic -hooks /var/webhook/hooks.json -verbose`, the service will start at boot, load the hooks, and serve them on default port 9000.
 - The [webhook definition file](./deployment/hooks.json) simply has an `id` field to name the hook, an `execute-command` field to tell the hook what to do when activated, and the `command-working-directory` which tells webhook where to execute.
-    - The webhook definition file is loacted in `/var/webhook`.
+    - The webhook definition file is located in `/var/webhook`.
 - To configure GitHub to send a message to the listener, click on `Settings` from the repo main page. Then select `Webhooks` on the left sidebar, then click `Add webhook`.
     - Add the `Payload URL` to specify *where* to send the POST request.
         - This is supplied by webhook when activated on the server.
     - Select the event(s) that will trigger the webhook.
         - For this project, I selected `Let me select individual events.` > `Workflow runs`.
     - Click `Add webhook` to save.
+
+![Demonstration Video](./deployment/Proj-5_Demonstration.webm)
 
 ### Resources Used
 
