@@ -17,7 +17,7 @@
 
 ### Part 2 - Deployment
 
-- The installation of Docker to the remote instance was the same as the installation to my persoanl laptop as they both run Ubuntu. See [README-CI: Run Project Locally](./README-CI.md#run-project-locally) for detailed instructions.
+- The installation of Docker to the remote instance was the same as the installation to my personal laptop as they both run Ubuntu. See [README-CI: Run Project Locally](./README-CI.md#run-project-locally) for detailed instructions.
 - The [container restart script](./deployment/pull-start.sh) is simple. It stops and removes the outdated container, so that the name can be reused. Then it pulls the fresh image from DockerHub and runs a container from the new image. During the operation, it provides output of status.
     - The script is located in `/var/scripts/`.
 - To install `adnanh's webhook`, simply run `sudo apt install webhook`.
@@ -32,7 +32,7 @@
         - For this project, I selected `Let me select individual events.` > `Workflow runs`.
     - Click `Add webhook` to save.
 
-![Demonstration Video](./deployment/Proj-5_Demonstration.webm)
+- Demonstration Video uploaded to Pilot
 
 ### Resources Used
 
