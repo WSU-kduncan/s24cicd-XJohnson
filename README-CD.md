@@ -25,8 +25,8 @@
     - The webhook definition file is located in `/var/webhook`.
 - `webhook` can be started manually with `webhook -hooks /path/to/hooks.json -verbose`.
 - The [webhook service file](./deployment/webhook.service) includes a link to package documentation, a description, and intructions for the system to start the service. To start the service at boot so it is listening add `ConditionPathExists=/var/webhook` and `ExecStart=/usr/bin/webhook -nopanic -hooks /var/webhook/hooks.json -verbose` lines in the appropriate sections.
-    - To reload the service when `webhook.service` is changed, use `sudo systemctl daemon-reload`.
-    - To reload the service when `hooks.json` is changed, use `sudo systemctl restart webhook.service`.
+    - To reload the service when `webhook.service` is changed, use `sudo systemctl daemon-reload` then `sudo systemctl restart webhook.service`.
+    - To reload the service when just `hooks.json` is changed, simply use `sudo systemctl restart webhook.service`.
     - This file is located in `lib/systemd/system/`.
 - To configure GitHub to send a message to the listener, click on `Settings` from the repo main page. Then select `Webhooks` on the left sidebar, then click `Add webhook`.
     - Add the `Payload URL` to specify *where* to send the POST request.
