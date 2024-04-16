@@ -21,10 +21,13 @@
 - The [container restart script](./deployment/pull-start.sh) is simple. It stops and removes the outdated container, so that the name can be reused. Then it pulls the fresh image from DockerHub and runs a container from the new image. During the operation, it provides output of status.
     - The script is located in `/var/scripts/`.
 - To install `adnanh's webhook`, simply run `sudo apt install webhook`.
-    - `webhook` can be started manually with `webhook -hooks /path/to/hooks.json -verbose`.
-    - By changing the `lib/systemd/system/webhook.service` file to include `ConditionPathExists=/var/webhook` and `ExecStart=/usr/bin/webhook -nopanic -hooks /var/webhook/hooks.json -verbose`, the service will start at boot, load the hooks, and serve them on default port 9000.
 - The [webhook definition file](./deployment/hooks.json) simply has an `id` field to name the hook, an `execute-command` field to tell the hook what to do when activated, and the `command-working-directory` which tells webhook where to execute.
     - The webhook definition file is located in `/var/webhook`.
+- `webhook` can be started manually with `webhook -hooks /path/to/hooks.json -verbose`.
+- The [webhook service file](./deployment/webhook.service) includes a link to package documentation, a description, and intructions for the system to start the service. To start the service at boot so it is listening add `ConditionPathExists=/var/webhook` and `ExecStart=/usr/bin/webhook -nopanic -hooks /var/webhook/hooks.json -verbose` lines in the appropriate sections.
+    - To reload the service when `webhook.service` is changed, use `sudo systemctl daemon-reload`.
+    - To reload the service when `hooks.json` is changed, use `sudo systemctl restart webhook.service`.
+    - This file is located in `lib/systemd/system/`.
 - To configure GitHub to send a message to the listener, click on `Settings` from the repo main page. Then select `Webhooks` on the left sidebar, then click `Add webhook`.
     - Add the `Payload URL` to specify *where* to send the POST request.
         - This is supplied by webhook when activated on the server.
